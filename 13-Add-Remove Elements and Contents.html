@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-Remove</title>
+    <script src="jquery-3.6.1.min.js"></script>
+</head>
+    <style>
+        body{
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+        .head{
+            border: 1px solid green;
+            border-radius: 10px;
+            background-color: aqua;
+            width: 50vw;
+            margin: auto;
+            padding: 15px;
+        }
+        .main{
+            width: 100vw;
+            display: flex;
+            text-align: center;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .div1{
+            width: 45%;
+        }
+        .div2{
+            border: 1px solid blue;
+            border-radius: 10px;
+            background-color: rgb(126, 160, 6);
+            /* color: whitesmoke; */
+            width: 90%;
+            margin: 20px auto;
+            padding: 15px;
+        }
+        .redP{
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+            font-style: italic;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#app1").click(function(){
+                $("#p1").append("Appended Text.");
+            });
+            $("#prep1").click(function(){
+                $("#p1").prepend("<b>'Bold', Hello</b>");
+            });
+            
+            $("#app2").click(function(){
+                $("ol").append("<li>New End</li>");
+            });
+            $("#prep2").click(function(){
+                $("ol").prepend("<li>New Start</li>");
+            });
+
+            $("#app3").click(function(){
+                // HTML create Element
+                let para1 = "<p> HTML Paragraph. </p>"; 
+                //Create Element with DOM
+                let para2 = document.createElement('p');
+                para2.innerHTML = "DOM Paragarph.";
+                //Create Element with jQuery
+                let para3 = $("<p></p>").text("jQuery Paragraph.");
+                //Append the Elements at End of the Div
+                $("#myDiv").append(para1, para2, para3);
+            });
+
+            $("#inputName").focus(function(){$("#inputName").select();}); //to select input when focus it.
+            $("#prepList").click(function(){
+                $("#inputs").prepend("<li>"+ $("#inputName").val()+"</li>");
+                $("#inputName").focus(); // make focus on input-box
+            })
+            $("#appList").click(function(){
+                $("#inputs").append("<li>"+ $("#inputName").val()+"</li>");
+                $("#inputName").focus();
+            });
+
+            $("#btnBefore").click(function(){
+                $("#myImg1").before("<b>Before</b>");
+            });
+            $("#btnAfter").click(function(){
+                $("#myImg1").after("<i>After</i>");
+            });
+
+            $("#remove1").click(function(){
+                $("#testDiv1").remove();
+            });
+            $("#empty1").click(function(){
+                $("#testDiv2").empty();
+            });
+            $("#removeFilter").click(function(){
+                $("p").remove(".redP"); //Remove P element with class='redP'
+            })
+        })
+
+        function afterText() {
+            var txt1 = "<b>I </b>";           // Create element with HTML
+            var txt2 = $("<i></i>").text("love ");  // Create with jQuery
+            var txt3 = document.createElement("b");   // Create with DOM
+            txt3.innerHTML = "jQuery!";
+            $("#myImg2").after(txt1, txt2, txt3);    // Insert new elements after img
+        }
+    </script>
+
+<body>
+    <div class="head">
+        <h2 style="text-align: center;">jQuery - Add Elements</h2>
+        <h3>With jQuery, it is easy to add new elements/content.</h3>
+        <h4>We will look at four jQuery methods that are used to add new content:</h4>
+        <ul>
+            <li>append() - Inserts content at the end of the selected elements</li>
+            <li>prepend() - Inserts content at the beginning of the selected elements</li>
+            <li>after() - Inserts content after the selected elements</li>
+            <li>before() - Inserts content before the selected elements</li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="div1">
+            <div class="div2">
+                <p id="p1">This is A Paragraph.</p>
+                <button id="app1">Append Content1</button>
+                <button id="prep1">Prepend Content1</button>
+            </div>
+            <div class="div2">
+                <ol style="text-align:left ;">
+                    <li>Books</li>
+                    <li>Videos</li>
+                </ol>
+                <button id="app2">Append Content2</button>
+                <button id="prep2">Prepend Content2</button>
+            </div>
+            <div id="myDiv" class="div2">
+                <p id="p2">Appendig Elements.</p>
+                <button id="app3">Append Texts/Paragarph</button>
+                <!-- <button id="prep1">Prepend Content1</button> -->
+            </div>
+        </div>
+
+        <div class="div1">
+            <div class="div2">
+                Input-Box <input type="text" name="" id="inputName" value="Name">
+                <button id="prepList">Add First</button>
+                <button id="appList">Add Last</button>
+                <ol id="inputs" style="text-align: left;"></ol>
+            </div>
+            <div class="div2">
+                <img src="w3jquery.gif" id="myImg1" alt="jQuery" width="100" height="140"><br><br>
+                <button id="btnBefore">Insert before</button>
+                <button id="btnAfter">Insert after</button>
+            </div>
+            <div class="div2">
+                <img src="w3jquery.gif" id="myImg2" alt="jQuery" width="100" height="140">
+                <p>Click the button to insert text after the image.</p>
+                <button onclick="afterText()">Insert after</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="head">
+        <h2 style="text-align: center;">jQuery - Remove Elements</h2>
+        <h3>With jQuery, it is easy to remove existing HTML elements.</h3>
+        <h4>To remove elements and content, there are mainly two jQuery methods:</h4>
+        <ul>
+            <li>remove() - Removes the selected element (and its child elements)</li>
+            <li>empty() - Removes the child elements from the selected element</li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="div1">
+            <div class="div2">
+                <div id="testDiv1" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+                    This is some text in the div.
+                    <p>This is a paragraph in the div.</p>
+                    <p>This is another paragraph in the div.</p>
+                </div>
+                <br>
+                <button id="remove1">Remove div element</button>
+            </div>
+            <div class="div2">
+                <div id="testDiv2" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+                    This is some text in the div.
+                    <p>This is a paragraph in the div.</p>
+                    <p>This is another paragraph in the div.</p>
+                </div>
+                <br>
+                <button id="empty1">Empty the div element</button>
+            </div>
+        </div>
+
+        <div class="div1">
+            <div class="div2">
+                <p>Paragraph 1</p>
+                <p class="redP">Paragraph 2</p>
+                <p class="redP">Paragraph 3</p>
+                <button id="removeFilter">Remove all p elements with class="redP"</button>
+            </div>
+            <div class="div2">
+                hell
+            </div>
+        </div>
+    </div>
+</body>
+</html>

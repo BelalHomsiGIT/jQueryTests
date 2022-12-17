@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.1.min.js"></script>
+    <title>Document</title>
+</head>
+<script>
+    $(document).ready(function(){
+        //when loading, the h1 will hide
+        $("#title").hide();
+
+        //by click on any btn, the h1 will show
+        $("button").click(function(){
+            $("#title").show();
+        });
+        //hide & show
+        $("#btn1").click(function(){
+            $(".details").hide()
+        });
+        $("#btn2").click(function(){
+            $(".details").show();
+        });
+        $("#btn3").click(function(){
+            $("p").hide();
+        });
+        $("#btn4").click(function(){
+            $("p").show();
+        });
+        //hover
+        $("h3").hover(function(){
+            $(this).fadeOut(200);
+            $(this).fadeIn(600);
+        })
+    });
+
+</script>
+<body>
+<!--
+jQuery selectors are used to "find" (or select) HTML elements based on their name, id, classes, types, attributes, values
+    of attributes and much more. It's based on the existing CSS Selectors, and in addition, it has some own custom selectors.
+All selectors in jQuery start with the dollar sign and parentheses: $().
+-->
+    <h1 id="title">Hello jQuery</h1>
+    <h3>Test - hover me</h3>
+    <p class="details">P - This is a paragraph - Details 1.</p>
+    <p class="details">P - This is a paragraph - Details 2..</p>
+    <p>P - This is stand alone paragraph.</p>
+
+    <button>Click 1</button>
+    <button>Click 2</button> <br>
+
+    <button id="btn1">Hide Details</button>
+    <button id="btn2">Show Details</button>
+    <button id="btn3">Hide all P</button>
+    <button id="btn4">Show all P</button> <br>
+</body>
+</html>

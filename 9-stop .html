@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9-jQuery Stop </title>
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#slideDown").click(function(){
+                $("#slide1").slideDown(5000);
+            });
+            $("#stop").click(function(){
+                $("#slide1").stop();
+            });
+
+            $(".sliding2").click(function(){
+                $(".panel2").slideToggle(3000);
+            });
+            $("#stop2").click(function(){
+                $(".panel2").stop();
+            });
+        })
+    </script>
+    <style>
+        .sliding, .panel, .sliding2, .panel2{
+            box-sizing: border-box;
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            border: 1px solid rgb(165, 209, 226);
+            border-radius: 5px;
+            color: azure;
+            background-color: darkslategray;
+            cursor: pointer;
+        }
+        .sliding, .sliding2{
+            padding: 10px;
+        }
+        .panel, .panel2{
+            padding: 50px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        .sliding2{
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div  style="width: 100%; margin: auto; text-align: center;">
+        <button id="stop" style="width: 120px; height: 30px; margin: 10px 0px;">Stop</button>
+    </div>
+    <div id="slideDown" class="sliding">
+        Click To Show Sliding-Down
+    </div>
+    <div id="slide1" class="panel">
+        Hello jQuery Effect - Sliding <br>
+        Click To the Button Stop
+    </div>
+
+    <div  style="width: 100%; margin: auto; text-align: center; margin-top: 50px;">
+        <button id="stop2" style="width: 120px; height: 30px;">Stop</button>
+    </div>
+    <div class="sliding2">Click-Flip To Show Sliding-Down&Up</div>
+    <div class="panel2">
+        Hello jQuery Effect - Sliding <br>
+        Slide Toggle
+    </div>
+</body>
+</html>

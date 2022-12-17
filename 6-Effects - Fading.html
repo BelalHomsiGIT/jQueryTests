@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects - Fading</title>
+    <!-- jQuery-CDN -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#fadeout-btn").click(function(){
+                $(".fade").fadeOut();
+            });
+            $("#fadein-btn").click(function(){
+                $(".fade").fadeIn();
+            });
+            
+            $("#fadeoutTime-btn").click(function(){
+                $(".fadeTime").fadeOut(1500);
+            });
+            $("#fadeinTime-btn").click(function(){
+                $(".fadeTime").fadeIn(1500);
+            });
+            
+            $("#fadeToggle-btn").click(function(){
+                $(".fadeToggle").fadeToggle(1000);
+            });
+
+            $("#fadeOpacity-btn").click(function(){
+                $("#div1").fadeTo(1000, 0.2);
+                $("#div2").fadeTo(800, 0.5);
+                $("#div3").fadeTo(700, 0.7);
+            });
+            
+            $("#fadeOpacity2-btn").click(function(){
+                $("#div1").fadeTo(500, 1);
+                $("#div2").fadeTo(500, 1);
+                $("#div3").fadeTo(500, 1);
+            });
+        })
+        
+    </script>
+    <style>
+        .main{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid lightblue;
+            border-radius: 10px;
+            background-color: lightsteelblue;
+            padding: 20px 10px;
+            width: 90%;
+            height: 110px;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+        .fade, .fadeTime, .fadeToggle, .fadeOpacity{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            /* margin: auto; */
+            /* text-align: center; */
+            border: 1px solid white;
+            border-radius: 10px;
+            background-color: rgb(243, 231, 70);
+            color: blue;
+            font-size: 20px;
+        }
+        .btn{
+            width: 90px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background-color: cornflowerblue;
+            color: white;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">  
+        <div class="">
+            <button id="fadeout-btn" class="btn">Fade-Out</button> <br>
+            <button id="fadein-btn" class="btn">Fade-In</button>
+        </div>
+        <div class="fade">Fade</div>
+        <div class="fade">Fade</div>
+        <div class="fade">Fade</div>
+    </div>
+    <div class="main">  
+        <div class="">
+            <button id="fadeoutTime-btn" class="btn">Fade-Out-S</button> <br>
+            <button id="fadeinTime-btn" class="btn">Fade-In-S</button>
+        </div>
+        <div class="fadeTime">Fade</div>
+        <div class="fadeTime">Fade</div>
+        <div class="fadeTime">Fade</div>
+    </div>
+    <div class="main">  
+        <div class="">
+            <button id="fadeToggle-btn" class="btn">Fade-Toggle</button>
+        </div>
+        <div class="fadeToggle">Fade</div>
+        <div class="fadeToggle">Fade</div>
+        <div class="fadeToggle">Fade</div>
+    </div>
+    <div class="main">  
+        <div class="">
+            <button id="fadeOpacity-btn" class="btn">Fade-To</button> <br>
+            <button id="fadeOpacity2-btn" class="btn">Fade-To2</button>
+        </div>
+        <div id="div1" class="fadeOpacity">Fade</div>
+        <div id="div2" class="fadeOpacity">Fade</div>
+        <div id="div3" class="fadeOpacity">Fade</div>
+    </div>
+</body>
+</html>

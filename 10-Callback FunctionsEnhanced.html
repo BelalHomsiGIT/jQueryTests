@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Callback Functions</title>
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".sliding1").click(function(){
+                $(".panel1").slideDown('slow', function(){
+                    $(".sliding2").show('slow');
+                });
+            });
+            $(".panel1").click(function(){
+                $(this).slideUp(900, function(){
+                    $(".panel2").hide('slow', function(){
+                        $(".sliding2").hide('slow');
+                    });
+                    
+                });
+            });
+
+            $(".sliding2").click(function(){
+                $(".panel2").slideToggle(800);
+            });
+            $(".panel2").click(function(){
+                $(this).slideUp('slow');
+            })
+        })
+    </script>
+    <style>
+        .slide, .panel{
+            box-sizing: border-box;
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            border: 1px solid rgb(165, 209, 226);
+            border-radius: 5px;
+            color: azure;
+            background-color: darkslategray;
+            cursor: pointer;
+        }
+        .slide{
+            padding: 10px;
+        }
+        .panel{
+            padding: 50px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        .sliding2{
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide sliding1">Click To Show Sliding-Down</div>
+    <div class="panel panel1">
+        Hello jQuery Effect - Sliding <br>
+        Click To Show Sliding-Up
+    </div>
+
+    <div class="slide sliding2">Click-Flip To Show Sliding-Down&Up</div>
+    <div class="panel panel2">
+        Hello jQuery Effect - Sliding <br>
+        Slide Toggle
+    </div>
+</body>
+</html>

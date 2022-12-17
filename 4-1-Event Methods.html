@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <!-- jQuery-CDN -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#mouseenter-demo").mouseenter(function(){
+                alert("Mouse entered in the first text.");
+            });
+
+            $("#mouseleave-demo").mouseleave(function(){
+                $(this).text("Hello jQuery!");
+            });
+
+            // multi events for the same element:
+            $("#mouse-down-up-demo").mouseenter(function(){
+                $(this).css({"color": "red"});
+            });
+            $("#mouse-down-up-demo").mousedown(function(){
+                $(this).text("ooooh, Mouse clicked me!!!");
+            });
+            $("#mouse-down-up-demo").mouseup(function(){
+                $(this).text("ok, Mouse released..")
+            })
+            $("#mouse-down-up-demo").mouseleave(function(){
+                $(this).text("When Click , we get new Text, and When release the Mouse we get another Text.");
+                $(this).css({"color": "black"});
+            })
+            //We can use the on() method for define event:
+            $("#on-demo").on("dblclick", function(){
+                $(this).css({"background-color": "lightblue", "font-size": "150%"});
+            })
+
+            //so we use on() for multi event for the same element:
+            /* 
+            $(selector).on({ 
+                event1: fun1(){ do some thing },
+                event2: fun2(){ do some thing },
+             })
+             */
+            $("#on-multi-events-demo").on({
+                mouseenter: function(){
+                    $(this).css({"color": "blue"});
+                },
+                click : function(){
+                    $("#view").text("Hellooooo");
+                },
+                mouseleave : function(){
+                    $(this).css({"color": "black"});
+                    $("#view").text("");
+                }
+
+            })
+            
+            //Delegated event handlers
+            // 'p' are descendants of "#event-test", so every p will apply the vent on it
+            $("#event-test").on('click', 'p', function(){
+                $(this).css("border", "1px solid yellow");
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <p id="mouseenter-demo">When Mouse Enter, we get Alert!</p> <br>
+    <p id="mouseleave-demo">When Moue Leave, we get new Text</p> <br>
+    <p id="mouse-down-up-demo">When Click , we get new Text, and When release the Mouse we get another Text.</p> <br>
+    <p id="on-demo">on() method test. Double-Click on this Text!!</p> <br>
+    <p id="on-multi-events-demo">on() method, alot of events here!!!!!</p> <br>
+    <p id="view"></p>
+    <div id="event-test" style="width: 200px; height: 150px; border: 1px solid red; margin:20px; padding:20px; text-align: center;">
+        <p class="p-test1" style="font-size:22px; color: green">Paragraph 1</p>
+        <p class="p-test2" style="font-size:22px; color: green">Paragraph 2</p>
+        <p>Click inside Div</p>
+    </div>
+    <a href="https://api.jquery.com/on/#on-events-selector-data-handler">Must Read</a>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects - Hide and Show</title>
+    <!-- jQuery-CDN -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#show-btn").click(function(){
+                $("#hide-show").show();
+            });
+                $("#hide-btn").click(function(){
+                $("#hide-show").hide();
+            });
+            $("#hide-slow-btn").click(function(){
+                $("#hide-show").hide("slow");
+            });
+            $("#show-slow-btn").click(function(){
+                $("#hide-show").show("slow");
+            });
+            $("#toggle-slow-btn").click(function(){
+                $("#hide-show").toggle("slow");
+            });
+        })
+        
+    </script>
+</head>
+<body>
+    <button id="hide-btn">Hide</button>
+    <button id="show-btn">Show</button>
+    <button id="hide-slow-btn">Hide-slow</button>
+    <button id="show-slow-btn">Show-slow</button>
+    <button id="toggle-slow-btn">Toggle-slow</button>
+    <p id="hide-show">Hide and Show events ..</p>
+</body>
+</html>

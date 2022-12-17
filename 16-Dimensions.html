@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensions</title>
+    <script src="jquery-3.6.1.min.js"></script>
+</head>
+<style>
+    body{
+        /* box-sizing: border-box; */
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+    }
+    .head{
+        border: 1px solid green;
+        border-radius: 10px;
+        background-color: aqua;
+        width: 60vw;
+        margin: auto;
+        padding: 15px;
+    }
+    .main{
+        width: 100vw;
+        display: flex;
+        text-align: center;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+    .div1{
+        width: 45%;
+    }
+    .div2{
+        border: 1px solid blue;
+        border-radius: 10px;
+        background-color: rgb(126, 160, 6);
+        /* color: whitesmoke; */
+        width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        $("#dm-div").click(function(){
+            let txt = "Dimension of imgDiv: " + "<br>";
+            txt += "width: " + $("#imgDiv").width();
+            txt += "<br>";
+            txt += "height: " + $("#imgDiv").height();
+            txt += "<br>";
+            txt += "innerWidth: " + $("#imgDiv").innerWidth();
+            txt += "<br>";
+            txt += "innerHeight: " + $("#imgDiv").innerHeight();
+            txt += "<br>";
+            txt += "outerWidth: " + $("#imgDiv").outerWidth();
+            txt += "<br>";
+            txt += "outerHeight: " + $("#imgDiv").outerHeight();
+            txt += "<br>";
+            txt += "outerWidth(with border): " + $("#imgDiv").outerWidth(true);
+            txt += "<br>";
+            txt += "outerHeight(with border): " + $("#imgDiv").outerHeight(true);
+            $("#test2").html(txt);
+        })
+        $("#dm-window").click(function(){
+            let txt = "";
+            txt += "Document width/height: " + $(document).width();
+            txt += "x" + $(document).height() + "\n";
+            txt += "Window width/height: " + $(window).width();
+            txt += "x" + $(window).height();
+            alert(txt);
+        });
+        $("#resize-imgDiv").click(function(){
+            $("#imgDiv").width(800).height(400)
+        })
+    })
+</script>
+<body>
+    <div class="head">
+        <h2 style="text-align: center;">Dimensions</h2>
+        <h3>With jQuery, it is easy to work with the dimensions of elements and browser window.</h3>
+        <h3>jQuery has several important methods for working with dimensions:</h3>
+        <ul>
+            <li>width() method sets or returns the width of an element (excludes padding, border and margin).</li>
+            <li>height() method sets or returns the height of an element (excludes padding, border and margin).</li>
+            <li>innerWidth() method returns the width of an element (includes padding).</li>
+            <li>innerHeight() method returns the height of an element (includes padding).</li>
+            <li>outerWidth() method returns the width of an element (includes padding and border).</li>
+            <li>outerHeight() method returns the height of an element (includes padding and border).</li>
+            <li>outerWidth(true) method returns the width of an element (includes padding, border, and margin).</li>
+            <li>outerHeight(true) method returns the height of an element (includes padding, border, and margin).</li>
+        </ul>
+    </div>
+    <div class="head" id="imgDiv" style="text-align: center; margin-top: 20px;">
+        <!-- <h2 style="text-align: center;">Dimensions</h2>
+        <h3>With jQuery, it is easy to work with the dimensions of elements and browser window.</h3>
+        <h3>jQuery has several important methods for working with dimensions:</h3> -->
+        <img src="img_jquerydim.gif" alt="">
+    </div>
+    <div class="main">
+        <div class="div1">
+            <div class="div2" id="myDivTest">
+                <h3 id="test2" style="font-style: italic; font-weight: bold;">Heading3</h3>
+                <div id="btnDiv">
+                    <button id="dm-div">Display dimensions of div</button>
+                    <button id="dm-window">Display dimensions of document and window</button>
+                </div>
+            </div>
+        </div>
+        <div class="div1">
+            <div class="div2" id="myDivTest">
+                <h3 id="test2" style="font-style: italic; font-weight: bold;">Heading3</h3>
+                <div id="btnDiv">
+                    <button id="resize-imgDiv">Resize imgDiv</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traversing</title>
+    <base target="_blank">
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+        .container{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 10px;
+            padding: 5px;
+            border: 2px solid rgb(236, 195, 98);
+            border-radius: 10px;
+            background-color: rgb(238, 236, 211);
+        }
+        .head{
+            width: 48%;
+        }
+        ul li{
+            font-size: 18px;
+            line-height: 30px;
+        }
+        a{
+            text-decoration: none; font-size: 22px; font-weight: bold; font-style: italic;
+            /* text-align: center; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>jQuery Traversing</h1>
+            <ul>
+                <li>The "div" element is the parent of "ul", and an ancestor of everything inside of it</li>
+                <li>The "ul" element is the parent of both "li" elements, and a child of "div"</li>
+                <li>The left "li" element is the parent of "span", child of "ul" and a descendant of "div"</li>
+                <li>The "span" element is a child of the left "li" and a descendant of "ul" and "div"</li>
+                <li>The two "li" elements are siblings (they share the same parent)</li>
+                <li>The right "li" element is the parent of "b", child of "ul" and a descendant of "div"</li>
+                <li>The "b" element is a child of the right "li" and a descendant of "ul" and "div"</li>
+            </ul>
+            <p style="font-size: 18px; font-weight: bold;">An ancestor is a parent, grandparent, great-grandparent, and so on. <br>
+                A descendant is a child, grandchild, great-grandchild, and so on. <br>
+                Siblings share the same parent.</p>
+        </div>
+        <div class="head" style="background-color: rgb(248, 232, 192); border: 2px solid rgb(236, 195, 98); border-radius: 7px; text-align: center;">
+            <img src="img_travtree.png" width="90%" alt="">
+        </div>
+    </div>
+
+    <!-- Traversing - Ancestors -->
+    <div class="container">
+        <div class="div1">
+            <h2 style="text-align: center;">1- Traversing - Ancestors</h2>
+            <p>With jQuery you can traverse up the DOM tree to find ancestors of an element.
+                <b>An ancestor is a parent, grandparent, great-grandparent, and so on.</b></p>
+            <h3 style="display: inline;">Traversing Up the DOM Tree:</h3>
+            <p style="display: inline;">Three useful jQuery methods for traversing up the DOM tree are:</p>
+            <ul>
+                <li><b>parent()</b> method returns the <b>direct parent element</b> of the selected element. <br>
+                    This method only <b>traverse a single level up the DOM tree.</b></li>
+                <li><b>parents()</b> method returns <b>all ancestor elements</b> of the selected element, <br>
+                    all the way up to the document's root element (&lt;html&gt;).
+                </li>
+                <li><b>parentsUntil()</b> method returns <b>all ancestor elements between</b> two given arguments.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            1-parent() Method <br>
+            <a href="/Traversing-Ancestors/17-Parent.html">parent() Test</a>
+        </div>
+        <div>
+            2-parents() Method <br>
+            <a href="/Traversing-Ancestors/17-Parents.html">parents() Test</a>
+        </div>
+        <div>
+            3-parents(parameter to filter the search for ancestors) <br>
+            <a href="/Traversing-Ancestors/17-Parents-Filter.html">parents(filter) Test</a>
+        </div>
+        <div>
+            4-parentsUntil() Method <br>
+            <a href="/Traversing-Ancestors/17-ParentsUntil.html">parentUntil() Test</a>
+        </div>
+    </div>
+
+    <!-- Traversing - Descendants -->
+    <div class="container">
+        <div class="div1">
+            <h2 style="text-align: center;">2- Traversing - Descendants</h2>
+            <p>With jQuery you can traverse down the DOM tree to find descendants of an element.
+                <b>A descendant is a child, grandchild, great-grandchild, and so on.</b></p>
+            <h3 style="display: inline;">Traversing Down the DOM Tree:</h3>
+            <p style="display: inline;">Two useful jQuery methods for traversing down the DOM tree are:</p>
+            <ul>
+                <li><b>children()</b> method returns <b>all direct children</b> of the selected element. <br>
+                This method only <b> traverses a single level down the DOM tree.</b></li>
+                <li><b>find()</b> method returns <b>descendant elements</b> of the selected element, <br>
+                    all the way down to the last descendant.
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            <!-- children() Method -->
+            1-children() Method <br>
+            <a href="/Traversing-Descendants/17-Children.html">children() Test</a>
+        </div>
+        <div>
+            <!-- children(filter) Method -->
+            2-children(filter) Method <br>
+            <a href="/Traversing-Descendants/17-Children-Filter.html">children(filter) Test</a>
+        </div>
+        <div>
+            <!-- find(parameter) Method -->
+            3-find(param) <br>
+            <a href="/Traversing-Descendants/17-Find.html">find(param) Test</a>
+        </div>
+        <div>
+            <!-- find(filter) Method -->
+            4-find(fiter) <br>
+            <a href="/Traversing-Descendants/17-Find-Filter.html">find(filter) Test</a>
+        </div>
+        <div>
+            <!-- find(all descendants) Method -->
+            5-find(*) <br>
+            <a href="/Traversing-Descendants/17-Find-All.html">find(*) Test</a>
+        </div>
+    </div>
+
+        <!-- Traversing - Siblings -->
+        <div class="container">
+            <div class="div1">
+                <h2 style="text-align: center;">3- Traversing - Siblings</h2>
+                <p>With jQuery you can traverse sideways in the DOM tree to find siblings of an element.
+                    <b>Siblings share the same parent. </b></p>
+                <h3 style="display: inline;">Traversing Sideways in The DOM Tree:</h3>
+                <p style="display: inline;">There are many useful jQuery methods for traversing sideways in the DOM tree:</p>
+                <ul>
+                    <li><b>siblings()</b> method returns <b> returns all sibling elements</b>  of the selected element.</li>
+                    <li><b>next()</b> method returns <b>returns the next sibling element</b> of the selected element.</li>
+                    <li><b>nextAll()</b> method returns <b>returns all next sibling elements</b> of the selected element.</li>
+                    <li><b>nextUntil()</b> method returns <b>returns all next sibling elements between two given arguments.</b></li>
+                    <li><b>prev()</b></li>
+                    <li><b>prevAll()</b></li>
+                    <li><b>prevUntil()</b></li>
+                    <p>Last three methods work just like the methods above <br>
+                        but with reverse functionality: <br>
+                        they return previous sibling elements (traverse backwards along sibling elements in the DOM tree, instead of forward).()</p>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                1-siblings() <br>
+                <a href="/Traversing-Siblings/17-siblings.html">siblings() Test</a>
+            </div>
+            <div>
+                2-siblings(filter) <br>
+                <a href="/Traversing-Siblings/17-siblings-filter.html">siblings(filter) Test</a>
+            </div>
+            <div>
+                2-next() <br>
+                <a href="/Traversing-Siblings/17-next.html">next() Test</a>
+            </div>
+            <div>
+                2-nextAll() <br>
+                <a href="/Traversing-Siblings/17-next-all.html">nextAll() Test</a>
+            </div>
+            <div>
+                2-nextUntil(param) <br>
+                <a href="/Traversing-Siblings/17-nextUntil.html">nextUntil(param) Test</a>
+            </div>
+        </div>
+
+        <!-- Traversing - Filtering -->
+        <div class="container">
+            <div class="div1">
+                <h2 style="text-align: center;">4- Traversing - Filtering</h2>
+                <p><b>The most basic filtering methods</b> are <b>first(), last() and eq()</b>,
+                     which allow you to <b>select a specific element based on its position in a group of elements.</b>
+                </p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div>
+                <p>1-first() <br> method returns the first element of the specified elements.</p> <br>
+                <a href="/Traversing-Filtering/17-first.html">first() Test</a>
+            </div>
+            <div>
+                <p>2-last() <br> method returns the last element of the specified elements.</p> <br>
+                <a href="/Traversing-Filtering/17-last.html">last() Test</a>
+            </div>
+            <div>
+                <p>3-eq() <br> method returns an element with a specific index number of the selected elements. <br>
+                    The index numbers start at 0, so the first element will have the index number 0 and not 1.</p> <br>
+                <a href="/Traversing-Filtering/17-eq.html">eq() Test</a>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <p>4-filter() <br> method lets you specify a criteria. <br>
+                    Elements that do not match the criteria are removed from the selection, <br>
+                     and those that match will be returned.</p> <br>
+                <a href="/Traversing-Filtering/17-filter.html">filter(param) Test</a>
+            </div>
+            <div>
+                <p>5-not() <br> method returns all elements that do not match the criteria. <br>
+                    <b>Tip:</b> The not() method is the opposite of filter().</p> <br>
+                <a href="/Traversing-Filtering/17-not.html">not(param) Test</a>
+            </div>
+           
+        </div>
+</body>
+</html>
+ 
+
+    
+    

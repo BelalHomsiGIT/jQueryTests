@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+        body{
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+        .head{
+            border: 1px solid green;
+            border-radius: 10px;
+            background-color: aqua;
+            width: 50vw;
+            margin: auto;
+            padding: 15px;
+        }
+        .head p{
+            font-size: 20px;
+        }
+        .main{
+            width: 100vw;
+            display: flex;
+            text-align: center;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .div1{
+            width: 45%;
+            /* border: 1px solid black; */
+            /* margin: auto; */
+        }
+        .div2{
+            border: 1px solid blue;
+            border-radius: 10px;
+            background-color: rgb(126, 160, 6);
+            color: whitesmoke;
+            width: 90%;
+            margin: 20px auto;
+            padding: 15px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            // Get
+            $("#btn1").click(function(){
+                alert("TEXT content in P is: " + $("#test").text());
+            });
+            $("#btn2").click(function(){
+                alert("HTML content in P is: " + $("#test").html());
+            });
+            $("#btn3").click(function(){
+
+                alert("Value in Input-Box is: " + $("#inputTest").val());
+            });
+            $("#btn4").click(function(){
+                alert("id Attribute for this Button is: " + $("#btn1").attr("id"));
+            });
+            $("#btn5").click(function(){
+                alert("style content for Paragraph is: \n" + $("#newP").attr("style"));
+            });
+            // Set
+            $("#btn6").click(function(){
+                $("#test2").text("We can Set Text Content, We did it!!");
+            });
+            $("#btn7").click(function(){
+                $("#test2").html("We can Set HTML Content,<b><i> We did it!! </b></i>");
+            });
+            $("#btn8").click(function(){
+                $("#inputTest2").val("Belal Homsi");
+            });
+            $("#btn9").click(function(){
+                $("#a1").attr("href" , "https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_dom_attr_set2");;
+            });
+            $("#btn10").click(function(){
+                $("#a2").text("jQurySetAttr-W3School");
+                $("#a2").attr({
+                    title : "Demo",
+                    href : "https://www.w3schools.com/jquery/jquery_dom_set.asp",
+                    target : "_blank"
+                })
+            });
+            // Callback Function with Set
+            $("#btn11").click(function(){
+                $("#test3").text(function(idx, oldText){
+                    return oldText + " Love Programming.." + " Index of this Paragraph is: " + idx;
+                }
+            )});
+            $("#btn13").click(function(){
+                $("#a3").attr("href", function(idx, oldhref){
+                    return oldhref + "jquery/";
+                })
+            });
+            $("#btn14").click(function(){
+                $("#a3").text("jQuery from W3schools");
+                $("#a3").attr({
+                    "href" : function(idx, oldhref){
+                        return oldhref + "jquery/";
+                    },
+                    target : "_blank"
+                });
+            });
+            $("#btn15").click(function(){
+                $("#a3").text("W3schools-HomePage");
+                $("#a3").attr("href" , "https://www.w3schools.com/");
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="head">
+        <h2 style="text-align: center;">Get & Set Content - text(), html(), and val()</h2>
+        <h3>Three simple, but useful, jQuery methods for DOM manipulation are:</h3>
+        <ul>
+            <li>text() - Sets or returns the text content of selected elements</li>
+            <li>html() - Sets or returns the content of selected elements (including HTML markup)</li>
+            <li>val() - Sets or returns the value of form fields</li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="div1">
+            <div class="div2">
+                <p id="test">This is some <b>BOLD</b> text in a paragraph.</p>
+                <button id="btn1">Show Text</button>
+                <button id="btn2">Show HTML</button>
+            </div>
+            <div class="div2">
+                Input-Box <input type="text" name="" id="inputTest" value="Name">
+                <button id="btn3">Show Value</button>
+            </div>
+            <div class="div2">
+                <button id="btn4">Get id Attribute for Show Text Button</button>
+                <br>
+                <p class="testP" id="newP" style="margin-left: 20px; color: rgb(242, 171, 245); font-size: 24px;">Hello Attributes..</p>
+                <button id="btn5">Get style Attribute for Paragraph above </button>
+            </div>
+        </div>
+
+        <div class="div1">
+            <div class="div2">
+                <p id="test2">This is a paragraph.</p>
+                <button id="btn6">Set Text</button>
+                <button id="btn7">Set HTML</button>
+            </div>
+            <div class="div2">
+                Input-Box <input type="text" name="" id="inputTest2" value="Name">
+                <button id="btn8">Set Value</button>
+            </div>
+            <div class="div2" style="display: flex; justify-content: space-between; ">
+                <div>
+                    <p class="testP2" id="newP2">The link don't work, href="#"</p>
+                    <a id="a1" href="#">Click the button then click here..</a> <br><br>
+                    <button id="btn9">Set href Attribute for Link above </button>
+                </div>
+                <div>
+                    <p class="testP2" id="newP2">Set href and title and text..</p>
+                    <a id="a2" href="#">Click the button then click here..</a> <br><br>
+                    <button id="btn10">Set href Attribute for Link above </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="head" style="width: 80vw;">
+        <h2 style="text-align: center;">A Callback Function for text(), html(), val(), and attr()</h2>
+        <p>
+            All of the three jQuery methods above: text(), html(), and val(), also come with a callback function.<br>
+            The callback function has two parameters:<br>
+            (1)- the index of the current element in the list of elements selected (2)- and the original (old) value. <br>
+            You then return the string you wish to use as the new value from the function.
+        </p>
+        <p>
+            The jQuery method attr(), also comes with a callback function. <br>
+            The callback function has two parameters: <br>
+            (1)- the index of the current element in the list of elements selected (2)- the original (old) attribute value. <br>
+            You then return the string you wish to use as the new attribute value from the function.
+        </p>
+    </div>
+    <div class="div2">
+        <button id="btn11" style="margin: 0 50px;">Set Text with Callback</button>
+        <p id="test3" style="display: inline;">Belal Homsi</p>
+        <!-- <span style="margin-left: 150px;"></span> -->
+    </div>
+    <div class="div2" style="text-align: center; padding-bottom: 20px;">
+        <!-- <p>Click the Link Below, then </p> -->
+        <span style="margin-right: 15px;">Click the Link</span>
+        <a id="a3" href="https://www.w3schools.com/" style="text-decoration: none; font-style: italic; font-weight: bold;">W3schools-HomePage</a>
+        <span style="margin-left: 15px;">Click any Button, then click the Link again</span>
+        <br><br>
+        <button id="btn13">Make Link Go to W3S jQuery</button>
+        <button id="btn14" style="margin: 0 20px;">W3S jQuery New Tab</button>
+        <button id="btn15">Reset</button> <br><br>
+    </div>
+</body>
+</html>

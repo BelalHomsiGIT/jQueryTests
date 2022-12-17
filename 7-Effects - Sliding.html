@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects - Sliding</title>
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".sliding").click(function(){
+                $(".panel").slideDown(900);
+            });
+            $(".panel").click(function(){
+                $(this).slideUp(900);
+            });
+
+            $(".sliding2").click(function(){
+                $(".panel2").slideToggle(800);
+            })
+        })
+    </script>
+    <style>
+        .sliding, .panel, .sliding2, .panel2{
+            box-sizing: border-box;
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            border: 1px solid rgb(165, 209, 226);
+            border-radius: 5px;
+            color: azure;
+            background-color: darkslategray;
+            cursor: pointer;
+        }
+        .sliding, .sliding2{
+            padding: 10px;
+        }
+        .panel, .panel2{
+            padding: 50px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        .sliding2{
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sliding">Click To Show Sliding-Down</div>
+    <div class="panel">
+        Hello jQuery Effect - Sliding <br>
+        Click To Show Sliding-Up
+    </div>
+
+    <div class="sliding2">Click-Flip To Show Sliding-Down&Up</div>
+    <div class="panel2">
+        Hello jQuery Effect - Sliding <br>
+        Slide Toggle
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulating CSS</title>
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+        body{
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+        .head{
+            border: 1px solid green;
+            border-radius: 10px;
+            background-color: aqua;
+            width: 50vw;
+            margin: auto;
+            padding: 15px;
+        }
+        .main{
+            width: 100vw;
+            display: flex;
+            text-align: center;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .div1{
+            width: 45%;
+        }
+        .div2{
+            border: 1px solid blue;
+            border-radius: 10px;
+            background-color: rgb(126, 160, 6);
+            /* color: whitesmoke; */
+            width: 90%;
+            margin: 20px auto;
+            padding: 15px;
+        }
+        .blueText{
+            color: blue;
+        }
+        .btnDiv{
+            border: 1px solid black;
+            margin: 15px;
+            padding: 10px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#blueClass").click(function(){
+                $("h2, h3, #p1").addClass("blueText");
+            })
+            $("#btnDivClass").click(function(){
+                $("#btnDiv").addClass("btnDiv");
+            })
+            $("#remBlueClass").click(function(){
+                $("h2, h3, #p1").removeClass("blueText");
+            })
+            $("#remBtnDivClass").click(function(){
+                $("#btnDiv").removeClass("btnDiv");
+            })
+            $("#toggleClass").click(function(){
+                $("h2, h3, #p11").toggleClass("blueText");
+                $("#btnDiv2").toggleClass("btnDiv");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="head">
+        <h2 style="text-align: center;">jQuery Manipulating CSS</h2>
+        <h3>jQuery has several methods for CSS manipulation. We will look at the following methods:</h3>
+        <ul>
+            <li>addClass() - Adds one or more classes to the selected elements</li>
+            <li>removeClass() - Removes one or more classes from the selected elements</li>
+            <li>toggleClass() - Toggles between adding/removing classes from the selected elements</li>
+            <li>css() - Sets or returns the style attribute</li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="div1">
+            <div class="div2">
+                <h2>Heading2</h2>
+                <h3>Heading3</h3>
+                <p id="p1">This is A Paragraph.</p>
+                <p id="p2">This is another Paragraph.</p>
+                <div id="btnDiv">
+                    <button id="blueClass">Blue</button>
+                    <button id="btnDivClass">BTN-Div</button>
+                    <button id="remBlueClass">Remove Blue</button>
+                    <button id="remBtnDivClass">Remove BTN-Div</button>
+                </div>
+            </div>
+        </div>
+        <div class="div1">
+            <div class="div2">
+                <h2>Heading2</h2>
+                <h3>Heading3</h3>
+                <p id="p11">This is A Paragraph.</p>
+                <p id="p22">This is another Paragraph.</p>
+                <div id="btnDiv2">
+                    <button id="toggleClass">Toggle-Classes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

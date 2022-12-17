@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      span{
+        font-size: 20px;
+        font-style: italic;
+        color: rgb(6, 168, 168);
+      }
+    </style>
+
+    <!--jquery link-->
+    <script src="jquery-3.6.0.min.js"></script>
+    
+    <!-- or as CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+  <h1>JQuery Selectors</h1>
+  <h3 class="details">The purpose of jQuery is to make it much easier to use JavaScript on your website.</h3>
+  <h2 class="articles">What is jQuery?</h2>
+  <p class="details">jQuery is a lightweight, "write less, do more", JavaScript library. <span>Test</span> <br>
+    The purpose of jQuery is to make it much easier to use JavaScript on your website. <br>
+    jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code. <br>
+    jQuery also simplifies a lot of the complicated things from JavaScript, like AJAX calls and DOM manipulation. <br>
+  </p>
+  <h3>The jQuery library contains the following features:</h3>
+  <ul>
+    <li>HTML/DOM manipulation <span>Test</span></li>
+    <li>CSS manipulation</li>
+    <li>HTML event methods</li>
+    <li>Effects and animations</li>
+    <li>AJAX</li>
+    <li>Utilities</li>
+  </ul>
+  <h2 class="articles">Why jQuery?</h2>
+  <p class="details">There are lots of other JavaScript libraries out there, but jQuery is probably the most popular, and also the most extendable. <br>
+    Many of the biggest companies on the Web use jQuery, such as: <br></p>
+  <ul>
+    <li>Google</li>
+    <li>Microsoft</li>
+    <li>IBM</li>
+    <li>Netflix</li>
+  </ul>
+  <p id="testp">Please hover here, and then click !</p>
+  <p id="testp2">Please click -toggle- Test9 !</p>
+  <div class="mybtns">
+    <button id="btn1">Test 1</button>
+    <button id="btn2">Test 2</button>
+    <button id="btn3">Test 3</button>
+    <button id="btn4">Test 4</button>
+    <button id="btn5">Test 5</button>
+    <button id="btn6">Test 6</button>
+    <button id="btn7">Test 7</button>
+    <button id="btn8">Test 8</button>
+    <button id="btn9">Test 9</button>
+  </div>
+  <h3>References / W3s</h3>
+  <a href="https://www.w3schools.com/jquery/jquery_events.asp">jquery_events</a><br>
+  Attach multiple event handlers to an element: <a href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_on_multiple">on_multiple</a><br>
+  <a href="https://www.w3schools.com/jquery/jquery_ref_events.asp">all Events-References</a><br>
+  <a href="https://www.w3schools.com/jquery/jquery_hide_show.asp">hide - show & toggle Events</a><br>
+  <a href=""></a><br>
+  <a href=""></a><br>
+
+
+  <!--jQuery Code-->
+  <script>
+      $(function(){
+        $("#btn1").click(function(){
+          $("*").css("box-sizing", "border-box")
+          $(".mybtns").css("height", "50px");
+          $(".mybtns").css("padding", "25px");
+          // we can set multi properties together.
+          $(".mybtns").css({"margin" : "auto", "text-align" : "center", "background-color" : "#E7E9EB"});
+        })
+        $("#btn2").click(function(){
+          $(".details").css({"text-indent" : "8px", "color" : "#f89"})
+          $(".articles").css({"text-style" : "italic", "color" : "#289"})
+        })
+      });
+
+      $("#btn3").click(function(){
+        $("ul li").css("color", "green")
+        $("ul li:eq(0)").css("color", "#e83")
+        $("ul li:eq(6)").css("color", "#f05")
+      });
+
+      $("#btn4").click(function(){
+        $(".articles").hide()
+      })
+      
+      $("#btn5").click(function(){
+        $(".articles").show()
+      })
+
+      $("#btn6").click(function(){
+        $(".details").empty();
+      })
+      
+      $("#btn7").click(function(){
+        $(".details").remove();
+      })
+
+      $("#btn8").click(function(){
+        $("ul li:eq(0)").empty();
+      })
+
+      $("#testp").on({
+        mouseenter : (function(){
+          $(this).css({"color":"red", "font-size":"22px"});
+        }),
+        mouseleave: (function(){
+          $(this).css({"color" : "", "font-size" : "16px"});
+        }),
+        click : (function(){
+          $(this).hide();
+        })
+      })
+
+      $("#btn9").click(function(){
+        $("#testp2").toggle("slow");
+      })
+  </script>
+</body>
+</html>

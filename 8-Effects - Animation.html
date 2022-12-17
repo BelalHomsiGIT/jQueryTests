@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects - Animation</title>
+    <script src="jquery-3.6.1.min.js"></script>
+</head>
+<script>
+    // $(selector).animate( {params}, speed, callback ); 
+
+    $(document).ready(function(){
+        $("#animate1").click(function(){
+            $(this).animate({left: '1000px'},1500);
+        });
+        $("#animate2").click(function(){
+            $(this).animate({
+                left: '600px',
+                width: '300px',
+                height: '300px',
+                fontSize: '30px',
+                'color': 'yellow'
+            },1500);
+        });
+        $("#btn").click(function(){
+            var mydiv = $("#animate3");
+            mydiv.animate({height: '300px', opacity: '0.4'}, "slow");
+            mydiv.animate({width: '300px', opacity: '0.8'}, "slow");
+            mydiv.animate({height: '100px', opacity: '0.4'}, "slow");
+            mydiv.animate({width: '100px', opacity: '1'}, "slow", function(){
+                // callback function:
+                mydiv.css({"color": "red"}) // execute after animate events..
+            });
+            
+        });
+    })
+</script>
+<style>
+    .main{
+        width: 80%;
+        margin: auto;
+    }
+    .main p{
+        background-color: rgb(186, 214, 184);
+        color: rgb(3, 97, 114);
+        font-weight: bold;
+        font-size: 20px;
+        padding: 20px;
+        line-height: 35px;
+    }
+    .main span{
+        color: rgb(170, 16, 16);
+    }
+    .animate{
+        position: relative; /* important for animate effecting*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 150px;
+        background-color: rgb(114, 245, 201);
+        color: rgb(3, 78, 3);
+        border: 1px solid rgb(3, 78, 3);
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bolder;
+    }
+</style>
+<body>
+    <!-- $(selector).animate( {params}, speed, callback ); -->
+    <div class="main">
+        <p>
+            <span>By default</span>, all HTML elements have a <span>static</span> position, and <span>cannot be moved.</span> To manipulate the <span>position</span>,
+             remember to first set the <span>CSS position property</span> of the element to <span>relative, fixed, or absolute</span>!
+        </p>
+        <div id="animate1" class="animate">Animate Effect</div>
+    </div>
+    
+    <div class="main">
+        <p>
+            <span style="color: rgb(39, 116, 218); font-size: 22px;">Is it possible to manipulate ALL CSS properties with the animate() method?</span>
+            <span>Yes, almost!</span> However, there is one important thing to remember: all property names must be <span>camel-cased</span> when used with the animate() method: You will need to write <span>paddingLeft</span> instead of <span>padding-left, marginRight</span>,
+            instead of <span> margin-right, and so on. <br>
+                If you want to animate color, you need to download the Color Animations plugin from jQuery.com.
+        </p>
+        <div id="animate2" class="animate">Animate Effect</div>
+    </div>
+
+    <div class="main">
+        <p>
+            Uses Queue Functionality
+            <button id="btn" style="width: 140px; height: 40px; border: 1px solid green; border-radius: 5px; background-color: lightblue; color:rgb(15, 87, 15); font-weight: bold; margin-left: 20px;">Start Animation</button>
+        </p>
+        <div id="animate3" class="animate" style="width:100px; height: 100px;">Animate</div>
+    </div>
+</body>
+</html>
